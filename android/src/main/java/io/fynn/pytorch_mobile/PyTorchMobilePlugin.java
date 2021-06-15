@@ -96,7 +96,13 @@ public class PyTorchMobilePlugin implements FlutterPlugin, MethodCallHandler {
           result.success(null);
         }
 
-        successResult(result, dtype, outputTensor);
+        // successResult(result, dtype, outputTensor);
+
+        ArrayList<Float> outputListFloat = new ArrayList<>();
+        for(float f : outputTensor.getDataAsFloatArray()){
+          outputListFloat.add(f);
+        }
+        result.success(outputListFloat);
 
         break;
       case "predictImage":

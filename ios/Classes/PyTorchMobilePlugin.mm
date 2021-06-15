@@ -52,9 +52,9 @@ NSMutableArray *modules = [[NSMutableArray alloc] init];
             
             try {
                 int len = (int) [data count];
-                float input[len];
+                long input[len];
                 for(int i = 0; i < len; i++) {
-                    input[i] = [ data[i] floatValue];
+                    input[i] = [ data[i] longValue];
                 }
                 NSArray<NSNumber*>* output = [module predict:&input withShape:shape andDtype:dtype];
                 result(output);
